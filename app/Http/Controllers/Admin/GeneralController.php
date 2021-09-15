@@ -109,8 +109,9 @@ class GeneralController extends Controller
         );
 
         if ($request->hasfile('logo')) {
+            
             $image = $request->file('logo');
-            $fileName =  'logo.' . $image->getClientOriginalExtension();
+            $fileName =  time() . sha1($image) . '.' . $image->getClientOriginalExtension();
             Image::make($image)->resize(200, null,function ($constraint) {
                 $constraint->aspectRatio();
             })->save(public_path('storage/images/' . $fileName));

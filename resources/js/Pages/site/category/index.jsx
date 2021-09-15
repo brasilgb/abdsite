@@ -26,14 +26,14 @@ const categorySite = ({ categories_posts }) => {
                                         <section className="border-b border-white" style={{
                                             backgroundImage: `url('/storage/post/${category.posts[0].featured}')`,
                                             backgroundPosition: 'right',
-                                            backgroundColor: '#F59E0B',
-                                            backgroundSize: '60%',
+                                            backgroundColor: '#B45309',
+                                            backgroundSize: '50%',
                                             backgroundRepeat: 'no-repeat'
                                         }}>
 
                                             <div className="container py-0 mx-auto">
                                                 <div className="h-40 md:h-96 items-center lg:flex">
-                                                    <div className="h-full md:h-96  flex items-center justify-left w-full md:rounded-r-full bg-gradient-to-r from-yellow-500 to-yellow-400 lg:w-7/12">
+                                                    <div className="h-full md:h-96 border-r-4 border-white flex items-center justify-left w-full bg-gradient-to-r from-yellow-700 to-yellow-600 lg:w-6/12">
                                                         <div className="max-w-lg lg:max-w-lg p-2">
                                                             <h1 className="md:text-2xl text-md font-semibold text-gray-200 uppercase dark:text-white lg:text-3xl">{category.categorytitle}</h1>
                                                             <p className="mt-2 md:text-xl text-sm text-gray-100 dark:text-gray-400">{category.descricao}</p>

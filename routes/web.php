@@ -19,6 +19,7 @@ use App\Http\Controllers\Site\PostController as PostSite;
 use App\Http\Controllers\Site\PageController as PageSite;
 use App\Http\Controllers\Site\GalleryController as GallerySite;
 use App\Http\Controllers\Site\MediaController as MediaSite;
+use App\Http\Controllers\Site\ContactController as ContactSite;
 
 
 Route::group(['middleware' => ['auth']], function () {
@@ -65,3 +66,4 @@ Route::get('/postagem/{post}', [PostSite::class, 'index'])->name('postagem');
 Route::get('/pagina/{page}', [PageSite::class, 'index'])->name('pagina');
 Route::get('/galeria/{gallery}', [GallerySite::class, 'index'])->name('galeria');
 Route::get('/imagem/{image}', [MediaSite::class, 'index'])->name('imagem');
+Route::get('/contato', [ContactSite::class, 'index'])->name('contato');

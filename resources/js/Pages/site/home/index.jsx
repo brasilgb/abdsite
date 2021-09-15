@@ -8,8 +8,6 @@ import route from 'ziggy'
 
 const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
 
-    const { categories, pages } = usePage().props;
-
     const iconSevices = (index) => {
 
         switch (index) {
@@ -169,37 +167,6 @@ const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
 
                     </div>
                 }
-
-                <div className="h-8 bg-gradient-to-t from-gray-100 to-gray-200 shadow border-t border-b border-white"></div>
-                <div className="bg-gradient-to-b from-gray-100 to-gray-200 px-4 md:px-8 lg:px-80 py-10 pt-2">
-
-                    <nav className="text-3xl" style={{ fontFamily: "'Rouge Script', cursive" }}>
-                        <div className="container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300">
-                            <a href="#" className="text-gray-800 dark:text-gray-200 border-b-2 border-blue-500 mx-1.5 sm:mx-6">home</a>
-                            {pages.map((page, indexb) => (
-                                (page.active == 1 &&
-                                    <InertiaLink
-                                        key={indexb}
-                                        href={route('pagina', page.id_post)}
-                                        className="border-b-2 border-transparent hover:text-yellow-500 dark:hover:text-gray-200 hover:border-yellow-500 mx-1.5 sm:mx-6">
-                                        {page.title}
-                                    </InertiaLink>
-                                )
-                            ))}
-                            {categories.map((category, indexc) => (
-                                (category.active == 1 &&
-                                    <InertiaLink
-                                        key={indexc}
-                                        href={route('categoria', category.id_category)}
-                                        className="border-b-2 border-transparent hover:text-yellow-500 dark:hover:text-gray-200 hover:border-yellow-500 mx-1.5 sm:mx-6">
-                                        {category.categoryname}
-                                    </InertiaLink>
-                                )
-                            ))}
-                            <a href="#" className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6">Contato</a>
-                        </div>
-                    </nav>
-                </div>
             </Layout>
         </Fragment>
 

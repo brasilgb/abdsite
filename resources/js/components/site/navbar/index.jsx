@@ -152,11 +152,12 @@ const navBarSite = () => {
                                     }
                                 })}
 
-                                <a
-                                    href="#"
-                                    className="border-b-2 border-transparent hover:text-yellow-500 dark:hover:text-gray-200 hover:border-yellow-500 mx-1.5 sm:mx-6">
+                                <InertiaLink
+                                    href={route('contato')}
+                                    className="border-b-2 border-transparent hover:text-yellow-500 dark:hover:text-gray-200 hover:border-yellow-500 mx-1.5 sm:mx-6"
+                                    >
                                     Contato
-                                </a>
+                                </InertiaLink>
                             </div>
 
                             <div className="flex justify-center mt-4 lg:flex lg:mt-0 lg:-mx-2">

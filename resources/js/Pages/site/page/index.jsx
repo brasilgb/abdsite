@@ -21,7 +21,7 @@ const pageSite = ({ page_content }) => {
 
                     <div className="container py-0 mx-auto">
                         <div className="h-40 md:h-96 items-center lg:flex">
-                            <div className="h-full md:h-96  flex items-center justify-left w-full md:rounded-r-full bg-gradient-to-r from-yellow-500 to-yellow-400 lg:w-7/12">
+                            <div className="h-full md:h-96 border-r-4 border-white flex items-center justify-left w-full bg-gradient-to-r from-yellow-500 to-yellow-400 lg:w-6/12">
                                 <div className="max-w-lg lg:max-w-lg p-2 lg:max-w-lg">
                                     <h1 className="md:text-2xl text-md text-gray-200 uppercase dark:text-white lg:text-3xl">{page_content.title}</h1>
                                     <p className="mt-2 text-sm md:text-xl text-gray-100">{page_content.summary}</p>
