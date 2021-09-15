@@ -49,7 +49,7 @@ class HandleInertiaRequests extends Middleware
                 : '',
 
             'general' => fn () => General::first()
-                ? General::orderByDesc('id_general')->first(['id_general', 'title', 'description', 'logo'])
+                ? General::orderByDesc('id_general')->first(['id_general', 'title', 'description', 'logo', 'maps'])
                 : '',
 
             'categories' => fn () => Category::get()

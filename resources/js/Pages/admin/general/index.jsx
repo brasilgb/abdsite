@@ -125,7 +125,7 @@ const General = ({ general, generalTitle, success, errimg, erraudio }) => {
                                 </div>
 
                                 <div className="pt-2">
-                                    <label><span className="text-gray-500">Mapa (código Google Maps)</span></label>
+                                    <label><span className="text-gray-500">Google Maps (URL Google Maps)</span></label>
                                     <textarea
                                         ref={mapsRef}
                                         rows="3"
