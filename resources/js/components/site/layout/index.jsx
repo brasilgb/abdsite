@@ -36,10 +36,10 @@ const Layout = ({ children }) => {
                     </div>
                 <div className="flex bg-gray-100 py-10 px-40">
                     <div className="auto">
-                        <h1 className="text-5xl text-yellow-900 text-shadow" style={{ fontFamily: "'sail', cursive" }}>{general.title}</h1>
+                        <h1 className="text-5xl text-yellow-900 text-shadow font-Sail">{general.title}</h1>
                     </div>
                     <div className="flex-1 pt-2 pl-10">
-                        <p className="text-4xl text-gray-700 text-shadow text-left" style={{ fontFamily: "'Rouge Script', cursive" }}>{general.description}</p>
+                        <p className="text-4xl text-gray-700 text-shadow text-left font-Rouge">{general.description}</p>
                     </div>
                     <div className="auto text-right">
                         <a

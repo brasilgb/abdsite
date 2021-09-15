@@ -13,10 +13,10 @@ const FooterSite = () => {
             <div className="h-8 bg-gradient-to-t from-gray-100 to-gray-200 shadow border-t border-b border-white"></div>
             <div className="bg-gradient-to-b from-gray-100 to-gray-200 px-4 md:px-8 lg:px-80 py-10 pt-2">
 
-                <nav className="text-3xl" style={{ fontFamily: "'Rouge Script', cursive" }}>
+                <nav className="text-3xl font-Rouge">
                     <div className="container flex items-center justify-center p-6 mx-auto text-gray-600 capitalize dark:text-gray-300">
-                        <InertiaLink 
-                        href={route('home')} 
+                        <InertiaLink
+                        href={route('home')}
                         className="text-gray-800 dark:text-gray-200 border-b-2 border-blue-500 mx-1.5 sm:mx-6"
                         >
                         Home
@@ -42,7 +42,7 @@ const FooterSite = () => {
                             )
                         ))}
                         <InertiaLink
-                        href={route('contato')} 
+                        href={route('contato')}
                         className="border-b-2 border-transparent hover:text-gray-800 dark:hover:text-gray-200 hover:border-blue-500 mx-1.5 sm:mx-6"
                         >Contato
                         </InertiaLink>

@@ -1,10 +1,11 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import { HiOutlineColorSwatch, HiOutlineLibrary, HiOutlineLightBulb, HiOutlinePuzzle, HiOutlineUsers } from 'react-icons/hi';
 import { BiChurch } from "react-icons/bi";
 import Layout from '../../../components/site/layout';
 import SliderHome from '../../../components/site/sliderhome';
-import { InertiaLink, usePage } from '@inertiajs/inertia-react';
 import route from 'ziggy'
+import Aos from 'aos';
+import "aos/dist/aos.css"
 
 const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
 
@@ -17,7 +18,7 @@ const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
             case 3: return <HiOutlineLibrary />
         }
 
-    }
+    };
 
     const iconClientes = (index) => {
 
@@ -27,7 +28,11 @@ const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
             case 2: return <HiOutlineUsers />
         }
 
-    }
+    };
+
+    useEffect(() => {
+        Aos.init({});
+    }, [])
 
     return (
         <Fragment>
@@ -40,10 +45,10 @@ const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
                                     <div className="container px-6 py-16 mx-auto">
                                         <div className="items-center lg:flex">
                                             <div className="w-full lg:w-1/2">
-                                                <div className="lg:max-w-lg">
-                                                    <h1 className="text-2xl font-semibold text-gray-200 uppercase dark:text-white lg:text-3xl">{section.categoryname}</h1>
+                                                <div className="lg:max-w-lg font-Confortaa">
+                                                    <h1 className="text-2xl font-semibold text-ars-400 uppercase dark:text-white lg:text-3xl">{section.categoryname}</h1>
                                                     <p className="mt-2 text-gray-500 dark:text-gray-400">{section.descricao}</p>
-                                                    <button className="w-full px-3 py-2 mt-6 text-xs font-medium text-white uppercase transition-colors duration-200 transform bg-yellow-700 rounded-md lg:w-auto hover:bg-yellow-800 focus:outline-none focus:bg-indigo-500">
+                                                    <button className="w-full btn px-3 py-2 mt-6 text-xs font-medium text-white bg-ars-700 rounded-md lg:w-auto hover:bg-ars-600 border border-ars-700">
                                                         Ver mais
                                                     </button>
                                                 </div>
@@ -63,14 +68,14 @@ const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
                     <div className="px-4 md:px-8 lg:px-80 py-20 pt-2 bg-gray-100">
                         {section2.map((sec2, index2) => (
                             <div key={index2}>
-                                <div className="py-8" style={{ fontFamily: "'Comfortaa', cursive" }}>
+                                <div className="py-8 font-Confortaa">
                                     <h1 className="text-3xl text-center text-shadow text-red-900">{sec2.categorytitle}</h1>
                                     <p className="text-xl text-center py-4">{sec2.descricao}</p>
                                 </div>
                                 <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                                     {sec2.posts.map((post2, pIndex2) => (
                                         <div key={pIndex2}>
-                                            <div className="shadow bg-white transition duration-600 ease-in-out hover:shadow-lg hover:bg-white" style={{ fontFamily: "'Comfortaa', cursive" }}>
+                                            <div data-aos="fade-up" data-aos-duration="1500" className="shadow bg-white transition duration-600 ease-in-out hover:shadow-lg hover:bg-white confortaa">
                                                 <div className="pb-1 bg-gradient-to-r from-yellow-800 to-yellow-600">
                                                     <img className="h-44 w-full" src={"/storage/post/" + post2.featured} alt="" />
                                                 </div>
@@ -96,7 +101,7 @@ const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
                         {section3.map((sec3, mIndex3) => (
                             <div key={mIndex3}>
                                 <div className="py-8">
-                                    <h1 className="text-3xl text-center text-gray-700 text-shadow" style={{ fontFamily: "'Comfortaa', cursive" }}>{sec3.galleryname}</h1>
+                                    <h1 className="text-3xl text-center text-gray-700 text-shadow font-Confortaa">{sec3.galleryname}</h1>
                                 </div>
                                 <SliderHome galleryData={sec3} />
                             </div>
@@ -109,14 +114,14 @@ const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
 
                         {section4.map((sec4, index4) => (
                             <div key={index4}>
-                                <div className="py-8" style={{ fontFamily: "'Comfortaa', cursive" }}>
+                                <div className="py-8 font-Confortaa">
                                     <h1 className="text-3xl text-red-900 text-center text-shadow">{sec4.categorytitle}</h1>
                                     <p className="text-xl text-center py-4">{sec4.descricao}</p>
                                 </div>
                                 <section className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8">
                                     {sec4.posts.map((post4, pIndex4) => (
                                         <div key={pIndex4}>
-                                            <div className="p-2 border border-white shadow hover:shadow-lg" style={{ backgroundImage: "url(/storage/post/" + post4.featured + ")", backgroundSize: "100%" }}>
+                                            <div  data-aos="fade-up" data-aos-duration="1500" className="p-2 border border-white shadow hover:shadow-lg" style={{ backgroundImage: "url(/storage/post/" + post4.featured + ")", backgroundSize: "100%" }}>
                                                 <div className="p-4 cursor-pointer bg-white rounded border border-white bg-white bg-opacity-80 hover:bg-opacity-70">
                                                     <div className="text-center text-gray-700">
                                                         <div className="flex justify-center">
@@ -141,14 +146,14 @@ const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
                     >
                         {section5.map((sec5, index5) => (
                             <div key={index5}>
-                                <div className="py-8" style={{ fontFamily: "'Comfortaa', cursive" }}>
+                                <div className="py-8 font-Confortaa">
                                     <h1 className="text-3xl text-center text-gray-100 text-shadow">{sec5.categorytitle}</h1>
                                     <p className="text-xl text-center py-4 text-gray-200">{sec5.descricao}</p>
                                 </div>
                                 <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                                     {sec5.posts.map((post5, pIndex5) => (
                                         <div key={pIndex5}>
-                                        <div className="h-full flex flex-col p-0 shadow bg-white transition duration-600 ease-in-out hover:shadow-lg hover:bg-white" style={{ fontFamily: "'Comfortaa', cursive" }}>
+                                        <div data-aos="fade-up" className="h-full flex flex-col p-0 shadow bg-white transition duration-600 ease-in-out hover:shadow-lg hover:bg-white" style={{ fontFamily: "'Comfortaa', cursive" }}>
                                             <div className="pb-1 pr-0 bg-gradient-to-r from-yellow-800 to-yellow-600">
                                                 <img className="h-44 w-full" src={"/storage/post/" + post5.featured} alt="" />
                                             </div>
