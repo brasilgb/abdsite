@@ -12,28 +12,28 @@ const Layout = ({ children }) => {
     const [showScroll, setShowScroll] = useState(false)
 
     const checkScrollTop = () => {
-      if (!showScroll && window.pageYOffset > 400){
-        setShowScroll(true)
-      } else if (showScroll && window.pageYOffset <= 400){
-        setShowScroll(false)
-      }
+        if (!showScroll && window.pageYOffset > 400) {
+            setShowScroll(true)
+        } else if (showScroll && window.pageYOffset <= 400) {
+            setShowScroll(false)
+        }
     };
 
-    const scrollTop = () =>{
-      window.scrollTo({top: 0, behavior: 'smooth'});
+    const scrollTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     window.addEventListener('scroll', checkScrollTop)
 
     return (
         <Fragment>
-                        <Head>
-            <link rel="icon" type="image/svg+xml" href={"/storage/images/" + logo} />
+            <Head>
+                <link rel="icon" type="image/svg+xml" href={"/storage/images/" + logo} />
             </Head>
             <div className="flex flex-col min-h-screen">
-                    <div className="w-full bg-black pb-16 z-50">
-                        <NavBarSite />
-                    </div>
+                <div className="w-full bg-black pb-16 z-50">
+                    <NavBarSite />
+                </div>
                 <div className="flex bg-gray-100 py-10 px-40">
                     <div className="auto">
                         <h1 className="text-5xl text-yellow-900 text-shadow font-Sail">{general.title}</h1>
@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
                 <div className="w-full">
                     <FooterSite />
                 </div>
-                <HiOutlineArrowCircleUp className="scrollTop text-yellow-400" onClick={scrollTop} style={{height: 40, display: showScroll ? 'flex' : 'none'}} />
+                <HiOutlineArrowCircleUp className="scrollTop text-yellow-400" onClick={scrollTop} style={{ height: 40, display: showScroll ? 'flex' : 'none' }} />
             </div>
         </Fragment>
     )

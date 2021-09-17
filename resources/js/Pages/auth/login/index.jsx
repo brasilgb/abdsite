@@ -2,7 +2,7 @@ import React, { Fragment, useRef, useState } from 'react'
 import { HiOutlineAtSymbol, HiOutlineLockClosed } from 'react-icons/hi'
 import { BiLogIn } from 'react-icons/bi'
 import Layout from '../layout'
-import { InertiaLink, usePage } from '@inertiajs/inertia-react'
+import { InertiaLink, usePage, Head } from '@inertiajs/inertia-react'
 import { Inertia } from '@inertiajs/inertia'
 import route from 'ziggy'
 const Login = () => {
@@ -21,17 +21,20 @@ const Login = () => {
 
         Inertia.post(route('login'), { email, password });
     }
+
     return (
         <Layout>
             <Fragment>
-
+            <Head>
+                <link rel="icon" type="image/svg+xml" href={"/storage/images/" + logo} />
+            </Head>
                 <div className="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
                     <div className="flex items-center justify-center">
                         <InertiaLink
                         href={route('home')}
                         title="página inicial"
                         >
-                        <img className="rounded-full h-32 w-32" src={"storage/images/" + logo} alt={general.title} />
+                        <img className="h-22" src={"storage/images/" + logo} alt={general.title} />
                         </InertiaLink>
                     </div>
 

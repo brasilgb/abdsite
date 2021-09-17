@@ -29,7 +29,7 @@ const Contact = () => {
                                             <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
                                         </svg>
 
-                                        <span class="mt-2">121 Street, NY</span>
+                                        <span class="mt-2">Rua José Specht, 26 - Centro, Salvador do Sul </span>
                                     </a>
 
                                     <a href="#" class="flex flex-col items-center px-4 py-3 text-gray-700 rounded-md dark:text-gray-200 hover:bg-blue-200 dark:hover:bg-blue-500">
