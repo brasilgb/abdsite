@@ -22,7 +22,9 @@ class General extends Model
         'logo',
         'audio',
         'address',
-        'contacts',
+        'phone',
+        'whatsapp',
+        'email',
         'maps'
     ];
 }

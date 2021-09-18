@@ -20,8 +20,10 @@ class CreateGeneralTable extends Migration
             $table->string('logo')->nullable();
             $table->string('audio')->nullable();
             $table->text('address')->nullable();
+            $table->text('phone')->nullable();
+            $table->text('whatsapp')->nullable();
+            $table->text('email')->nullable();
             $table->text('maps')->nullable();
-            $table->text('contacts')->nullable();
             $table->timestamps();
         });
     }

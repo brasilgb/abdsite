@@ -14,7 +14,9 @@ const General = ({ general, generalTitle, success, errimg, erraudio }) => {
     const descriptionRef = useRef();
     const addressRef = useRef();
     const mapsRef = useRef();
-    const contactsRef = useRef();
+    const phoneRef = useRef();
+    const emailRef = useRef();
+    const whatsappRef = useRef();
     const logoRef = useRef();
     const audioRef = useRef();
     const [imageFile, setImageFile] = useState();
@@ -33,8 +35,11 @@ const General = ({ general, generalTitle, success, errimg, erraudio }) => {
         titleRef.current.value = general.title ? general.title : '';
         descriptionRef.current.value = general.description ? general.description : '';
         addressRef.current.value = general.address ? general.address : '';
+        phoneRef.current.value = general.phone ? general.phone : '';
+        emailRef.current.value = general.email ? general.email : '';
+        whatsappRef.current.value = general.whatsapp ? general.whatsapp : '';
         mapsRef.current.value = general.maps ? general.maps : '';
-        contactsRef.current.value = general.contacts ? general.contacts : '';
+        
     }, [])
 
     const updateGeneral = (e) => {
@@ -43,10 +48,12 @@ const General = ({ general, generalTitle, success, errimg, erraudio }) => {
         const description = descriptionRef.current.value;
         const address = addressRef.current.value;
         const maps = mapsRef.current.value;
-        const contacts = contactsRef.current.value;
+        const phone = phoneRef.current.value;
+        const email = emailRef.current.value;
+        const whatsapp = whatsappRef.current.value;
         const logo = logoRef.current.files[0];
         const audio = audioRef.current.files[0];
-        Inertia.post(route('geral.alterar', general.id_general), { _method: 'put', title, description, logo, audio, address, maps, contacts });
+        Inertia.post(route('geral.alterar', general.id_general), { _method: 'put', title, description, logo, audio, address, maps, phone, email, whatsapp });
     };
 
     return (
@@ -113,15 +120,39 @@ const General = ({ general, generalTitle, success, errimg, erraudio }) => {
                                 </div>
 
                                 <div className="pt-2">
-                                    <label><span className="text-gray-500">Contatos</span></label>
-                                    <textarea
-                                        ref={contactsRef}
+                                    <label><span className="text-gray-500">Telefone</span></label>
+                                    <input
+                                        ref={phoneRef}
                                         rows="3"
                                         className="form-input text-gray-500 mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                        id="contacts"
+                                        id="phone"
                                         placeholder=""
-                                    ></textarea>
-                                    {errors.contacts && <div className="p-2 border border-t-0 border-red-200 text-sm flex items-center w-full bg-yellow-100 text-red-500"><HiExclamation className="text-md mt-1" /> {errors.contacts}</div>}
+                                    />
+                                    {errors.phone && <div className="p-2 border border-t-0 border-red-200 text-sm flex items-center w-full bg-yellow-100 text-red-500"><HiExclamation className="text-md mt-1" /> {errors.phone}</div>}
+                                </div>
+
+                                <div className="pt-2">
+                                    <label><span className="text-gray-500">Whatsapp</span></label>
+                                    <input
+                                        ref={whatsappRef}
+                                        rows="3"
+                                        className="form-input text-gray-500 mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        id="whatsapp"
+                                        placeholder=""
+                                    />
+                                    {errors.whatsapp && <div className="p-2 border border-t-0 border-red-200 text-sm flex items-center w-full bg-yellow-100 text-red-500"><HiExclamation className="text-md mt-1" /> {errors.whatsapp}</div>}
+                                </div>
+
+                                <div className="pt-2">
+                                    <label><span className="text-gray-500">E-mail</span></label>
+                                    <input
+                                        ref={emailRef}
+                                        rows="3"
+                                        className="form-input text-gray-500 mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                                        id="email"
+                                        placeholder=""
+                                    />
+                                    {errors.email && <div className="p-2 border border-t-0 border-red-200 text-sm flex items-center w-full bg-yellow-100 text-red-500"><HiExclamation className="text-md mt-1" /> {errors.email}</div>}
                                 </div>
 
                                 <div className="pt-2">

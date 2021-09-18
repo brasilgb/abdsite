@@ -1,15 +1,23 @@
+import { usePage, Head } from '@inertiajs/inertia-react';
 import React, { Fragment, useState } from 'react';
 import { HiMenu } from 'react-icons/hi';
 import FooterAdmin from '../footer';
 import NavBarAdmin from '../navbar';
 import SideBarAdmin from '../sidebar';
 const Layout = ({ children }) => {
+
+    const { general } = usePage().props;
+
+    const logo = general.logo ? general.logo : 'default.jpg';
+
     const [openSidebar, setOpenSidebar] = useState(false);
 
     return (
         <Fragment>
+            <Head>
+                <link rel="icon" type="image/svg+xml" href={"/storage/images/" + logo} />
+            </Head>
             <div className="flex">
-
                 <div className="absolute flex pt-4 pl-2 ">
                     <button
                         onClick={() => setOpenSidebar(!openSidebar)}

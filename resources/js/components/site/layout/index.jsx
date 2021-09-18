@@ -9,6 +9,7 @@ const Layout = ({ children }) => {
     const { general } = usePage().props;
 
     const logo = general.logo ? general.logo : 'default.jpg';
+    
     const [showScroll, setShowScroll] = useState(false)
 
     const checkScrollTop = () => {

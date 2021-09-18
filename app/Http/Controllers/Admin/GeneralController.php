@@ -91,7 +91,9 @@ class GeneralController extends Controller
                 'title' => 'required',
                 'description' => 'required',
                 'address' => 'required',
-                'contacts' => 'required',
+                'phone' => 'required',
+                'whatsapp' => 'required',
+                'email' => 'required',
                 'maps' => 'required',
                 'logo' => 'nullable|mimes:jpeg,jpg,png|max:5000',
                 'audio' => 'nullable|mimes:mp3|max:5000'
