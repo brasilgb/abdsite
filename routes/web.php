@@ -67,3 +67,4 @@ Route::get('/pagina/{page}', [PageSite::class, 'index'])->name('pagina');
 Route::get('/galeria/{gallery}', [GallerySite::class, 'index'])->name('galeria');
 Route::get('/imagem/{image}', [MediaSite::class, 'index'])->name('imagem');
 Route::get('/contato', [ContactSite::class, 'index'])->name('contato');
+Route::post('/enviar', [ContactSite::class, 'store'])->name('enviar');

@@ -5,6 +5,7 @@ import { BiLogIn } from 'react-icons/bi';
 import route from 'ziggy';
 import useDocumentScrollThrottled from '../../../hooks';
 import "../../../../../public/css/styles.css";
+import { HiMenu } from 'react-icons/hi';
 
 const navBarSite = () => {
 
@@ -61,6 +62,8 @@ const navBarSite = () => {
         setMenuCategoryOpen(newState)
     };
 
+    const [menuOpen, setMenuOpen] = useState(menuOpen);
+
     return (
         <Fragment>
             <nav className={`header ${shadowStyle} ${hiddenStyle}`}>
@@ -72,17 +75,22 @@ const navBarSite = () => {
                             </div>
 
                             {/* <!-- Mobile menu button --> */}
-                            <div className="flex md:hidden">
-                                {/* <button type="button" className="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
-                                    <HiMenu/>
-                                </button> */}
+                            <div className="flex md:hidden pr-2">
+                                <button
+                                    className="text-gray-100 dark:text-gray-200 hover:text-white dark:hover:text-gray-400 focus:outline-none focus:text-white dark:focus:text-gray-400"
+                                    aria-label="toggle menu"
+                                    onClick={() => setMenuOpen(!menuOpen)}
+                                >
+                                    <HiMenu className="3xl" />
+                                </button>
                             </div>
                         </div>
 
                         {/* <!-- Mobile Menu open: "block", Menu closed: "hidden" --> */}
-                        <div className="flex-1 md:flex md:items-center md:justify-between">
+                        <div className={"flex-1 md:flex md:items-center md:justify-between" +
+                            (menuOpen ? " block" : " hidden")}>
 
-                            <div className="container flex items-center justify-center p-4 mx-auto text-gray-100 uppercase font-semibold dark:text-gray-300">
+                            <div className="container uppercase flex flex-col md:flex-row md:items-center md:justify-center md:mx-auto text-gray-100">
                                 <InertiaLink
                                     href={route('home')}
                                     className={`${route().current('home') ?
@@ -119,7 +127,7 @@ const navBarSite = () => {
                                                             href=""
                                                             onClick={(e) => menuItem.sub_categories.length == 0 ? openLink(e, menuItem.slug) : toggleSubMenu(e, i)}
 
-                                                            className={`${route().current('categoria', menuItem.slug)?
+                                                            className={`${route().current('categoria', menuItem.slug) ?
                                                                 'text-yellow-500 border-b-2 border-yellow-500 mx-1.5 sm:mx-6'
                                                                 :
                                                                 'border-b-2 border-transparent hover:text-yellow-500 dark:hover:text-gray-200 hover:border-yellow-500 mx-1.5 sm:mx-6'}`}
@@ -140,7 +148,6 @@ const navBarSite = () => {
                                                                         className="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-blue-500 hover:text-white dark:hover:text-white"
                                                                     >
                                                                         {subMenu.categoryname}
-
                                                                     </InertiaLink>
                                                                 );
                                                             }
@@ -154,8 +161,11 @@ const navBarSite = () => {
 
                                 <InertiaLink
                                     href={route('contato')}
-                                    className="border-b-2 border-transparent hover:text-yellow-500 dark:hover:text-gray-200 hover:border-yellow-500 mx-1.5 sm:mx-6"
-                                    >
+                                    className={`${route().current('contato') ?
+                                        'text-yellow-500 border-b-2 border-yellow-500 mx-1.5 sm:mx-6'
+                                        :
+                                        'border-b-2 border-transparent hover:text-yellow-500 dark:hover:text-gray-200 hover:border-yellow-500 mx-1.5 sm:mx-6'}`}
+                                >
                                     Contato
                                 </InertiaLink>
                             </div>

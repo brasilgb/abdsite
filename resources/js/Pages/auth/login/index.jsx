@@ -20,21 +20,22 @@ const Login = () => {
         const password = passwordRef.current.value;
 
         Inertia.post(route('login'), { email, password });
-    }
+    };
 
+    const [openPass, setOpenPass] = useState(false);
     return (
         <Layout>
             <Fragment>
-            <Head>
-                <link rel="icon" type="image/svg+xml" href={"/storage/images/" + logo} />
-            </Head>
+                <Head>
+                    <link rel="icon" type="image/svg+xml" href={"/storage/images/" + logo} />
+                </Head>
                 <div className="flex flex-col bg-white shadow-md px-4 sm:px-6 md:px-8 lg:px-10 py-8 rounded-md w-full max-w-md">
                     <div className="flex items-center justify-center">
                         <InertiaLink
-                        href={route('home')}
-                        title="página inicial"
+                            href={route('home')}
+                            title="página inicial"
                         >
-                        <img className="h-22" src={"storage/images/" + logo} alt={general.title} />
+                            <img className="h-22" src={"storage/images/" + logo} alt={general.title} />
                         </InertiaLink>
                     </div>
 
@@ -86,14 +87,19 @@ const Login = () => {
 
                             <div className="flex items-center mb-6 -mt-4">
                                 <div className="flex ml-auto">
-                                    <a href="#" className="inline-flex text-xs sm:text-sm text-blue-500 hover:text-blue-700">Perdeu a senha?</a>
+                                    <a
+                                        onClick={() => setOpenPass(!openPass)}
+                                        className="cursor-pointer inline-flex text-xs sm:text-sm text-blue-500 hover:text-blue-700">Perdeu a senha?</a>
                                 </div>
                             </div>
-
+                            <div className={"bg-yellow-100 border border-red-100 text-sm rounded text-red-400 p-2 mb-2" +
+                                (openPass ? " block" : " hidden")}>
+                                Para redefinir a senha caso precise, entre em contato com o administrador.
+                            </div>
                             <div className="flex w-full">
                                 <button
                                     type="submit"
-                                    className="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-blue-500 hover:bg-blue-600 rounded py-2 w-full transition duration-150 ease-in"
+                                    className="flex items-center justify-center focus:outline-none text-white text-sm sm:text-base bg-ars-700 hover:bg-ars-600 rounded py-2 w-full transition duration-150 ease-in"
                                 >
                                     <span className="mr-2 uppercase">Entrar</span>
                                     <span>
