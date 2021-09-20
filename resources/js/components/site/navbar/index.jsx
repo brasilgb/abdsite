@@ -71,7 +71,11 @@ const navBarSite = () => {
                     <div className="py-2 md:flex md:items-center md:justify-between">
                         <div className="flex items-center justify-between">
                             <div className="">
-                                <a className="" href="#"><img className="h-10" src={'/storage/images/' + logo} alt={general.title} /></a>
+                                <InertiaLink
+                                    className=""
+                                    href={route('home')}>
+                                    <img className="h-10" src={'/storage/images/' + logo} alt={general.title} />
+                                </InertiaLink>
                             </div>
 
                             {/* <!-- Mobile menu button --> */}
