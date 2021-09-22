@@ -4,7 +4,9 @@ import { createInertiaApp } from '@inertiajs/inertia-react'
 import { InertiaProgress } from '@inertiajs/progress'
 // import 'slick-carousel/slick/slick';
 
-InertiaProgress.init()
+InertiaProgress.init({
+    color: "#B3762A"
+})
 
 createInertiaApp({
   resolve: name => require(`./Pages/${name}`),
