@@ -164,6 +164,16 @@ const navBarSite = () => {
                                 })}
 
                                 <InertiaLink
+                                    href={route('galerias')}
+                                    className={`${route().current('galerias') ?
+                                        'text-yellow-500 border-b-2 border-yellow-500 mx-1.5 sm:mx-6'
+                                        :
+                                        'border-b-2 border-transparent hover:text-yellow-500 dark:hover:text-gray-200 hover:border-yellow-500 mx-1.5 sm:mx-6'}`}
+                                >
+                                    Galerias
+                                </InertiaLink>
+
+                                <InertiaLink
                                     href={route('contato')}
                                     className={`${route().current('contato') ?
                                         'text-yellow-500 border-b-2 border-yellow-500 mx-1.5 sm:mx-6'

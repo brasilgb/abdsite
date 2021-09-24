@@ -31,10 +31,8 @@ const Create = ({ success, galleryTitle, error }) => {
         const description = descriptionRef.current.value;
         const cover = coverRef.current.files[0];
         const active = activeRef.current.checked;
-        const social = socialRef.current.checked;
-        const slider = sliderRef.current.checked;
 
-        Inertia.post(route('galeria.store'), { galleryname, description, cover, active, social, slider });
+        Inertia.post(route('galeria.store'), { galleryname, description, cover, active });
     };
 
     return (
@@ -117,29 +115,6 @@ const Create = ({ success, galleryTitle, error }) => {
                                     </div>
                                 </div>
 
-                                <div className="pt-2">
-                                    <div className="flex items-center">
-                                        <input
-                                            ref={socialRef}
-                                            type="checkbox"
-                                            className="form-checkbox text-gray-500 mt-1 block rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                            id="social"
-                                        />
-                                        <label htmlFor=""><span className="text-gray-500 pl-2">Tornar botão compartilar redes sociais visivel em imagens</span></label>
-                                    </div>
-                                </div>
-
-                                <div className="pt-2">
-                                    <div className="flex items-center">
-                                        <input
-                                            ref={sliderRef}
-                                            type="checkbox"
-                                            className="form-checkbox text-gray-500 mt-1 block rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                            id="slider"
-                                        />
-                                        <label htmlFor=""><span className="text-gray-500 pl-2">Tornar galeria slider na secção 3 da página inicial</span></label>
-                                    </div>
-                                </div>
                             </div>
                             <div className="w-full sm:w-1/2 md:w-1/3 lg:w-4/12 p-8">
                                 {imageFile &&

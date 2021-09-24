@@ -12,8 +12,6 @@ const Edit = ({ gallery, galleryTitle, success }) => {
     const descriptionRef = useRef();
     const coverRef = useRef([]);
     const activeRef = useRef();
-    const socialRef = useRef();
-    const sliderRef = useRef();
     const [imageFile, setImageFile] = useState();
 
     const loadImageFile = (filefield) => {
@@ -28,8 +26,6 @@ const Edit = ({ gallery, galleryTitle, success }) => {
         gallerynameRef.current.value = gallery.galleryname;
         descriptionRef.current.value = gallery.description;
         activeRef.current.checked = gallery.active;
-        socialRef.current.checked = gallery.social;
-        sliderRef.current.checked = gallery.slider;
     }, [])
 
     const updateCategory = (e) => {
@@ -38,15 +34,13 @@ const Edit = ({ gallery, galleryTitle, success }) => {
         const description = descriptionRef.current.value;
         const cover = coverRef.current.files[0];
         const active = activeRef.current.checked;
-        const social = socialRef.current.checked;
-        const slider = sliderRef.current.checked;
-        Inertia.post(route('galeria.update', gallery.id_gallery), {_method: 'put', galleryname, description, cover, active, social, slider });
+        Inertia.post(route('galeria.update', gallery.id_gallery), { _method: 'put', galleryname, description, cover, active });
     };
 
     return (
         <Fragment>
             <Layout>
-                <Head title={ general.title + ' - ' + galleryTitle} />
+                <Head title={general.title + ' - ' + galleryTitle} />
                 <div className="rounded py-2 px-4 text-gray-900 bg-gray-100 shadow">
 
                     <div className="p-2 mt-2 flex bg-gray-200 rounded-t-md border border-gray-300">
@@ -121,30 +115,6 @@ const Edit = ({ gallery, galleryTitle, success }) => {
                                             id="active"
                                         />
                                         <label htmlFor=""><span className="text-gray-500 pl-2">Tornar galeria disponível em galerias</span></label>
-                                    </div>
-                                </div>
-
-                                <div className="pt-2">
-                                    <div className="flex items-center">
-                                        <input
-                                            ref={socialRef}
-                                            type="checkbox"
-                                            className="form-checkbox text-gray-500 mt-1 block rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                            id="social"
-                                        />
-                                        <label htmlFor=""><span className="text-gray-500 pl-2">Tornar botão compartilar redes sociais visivel em imagens</span></label>
-                                    </div>
-                                </div>
-
-                                <div className="pt-2">
-                                    <div className="flex items-center">
-                                        <input
-                                            ref={sliderRef}
-                                            type="checkbox"
-                                            className="form-checkbox text-gray-500 mt-1 block rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                            id="slider"
-                                        />
-                                        <label htmlFor=""><span className="text-gray-500 pl-2">Tornar galeria slider na secção 3 da página inicial</span></label>
                                     </div>
                                 </div>
 

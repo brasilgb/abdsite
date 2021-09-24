@@ -60,7 +60,7 @@ const gallerySite = ({ galleries }) => {
 
                                                                 <div className="mb-0 pt-1 flex flex-auto items-center justify-end border-t border-gray-200">
                                                                     <InertiaLink
-                                                                        href={route('media', gallery.slug)}
+                                                                        href={route('galeria', gallery.slug)}
                                                                         className="flex items-center text-sm font-semibold text-yellow-600 hover:text-yellow-500"
                                                                     >
                                                                         <span>Saiba mais</span><GoArrowSmallRight className="pt-1 text-4xl" />

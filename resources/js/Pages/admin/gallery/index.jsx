@@ -110,8 +110,6 @@ const GalleryAdmin = ({ galleries, success, reload, galleryTitle }) => {
                                     <th className="text-left p-2">Imagens</th>
                                     <th className="text-left p-2">Data Criação</th>
                                     <th className="text-left p-2">Ativar</th>
-                                    <th className="text-left p-2">Social</th>
-                                    <th className="text-left p-2">Slider</th>
                                     <th className="w-3/12 text-left p-2">Ações</th>
                                 </tr>
                             </thead>
@@ -123,8 +121,6 @@ const GalleryAdmin = ({ galleries, success, reload, galleryTitle }) => {
                                         <td className="p-1">{gallery.medias.length}</td>
                                         <td className="p-1">{dataFormatada(gallery.created_at)}</td>
                                         <td className="p-1">{gallery.active == 1 ? <HiOutlineCheck className="text-2xl text-green-600" /> : <HiX className="text-2xl text-red-600" />}</td>
-                                        <td className="p-1">{gallery.social == 1 ? <HiOutlineCheck className="text-2xl text-green-600" /> : <HiX className="text-2xl text-red-600" />}</td>
-                                        <td className="p-1">{gallery.slider == 1 ? <HiOutlineCheck className="text-2xl text-green-600" /> : <HiX className="text-2xl text-red-600" />}</td>
                                         <td className="p-1 flex justify-end">
                                             <InertiaLink
                                                 method="get"
