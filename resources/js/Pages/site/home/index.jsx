@@ -6,6 +6,7 @@ import SliderHome from '../../../components/site/sliderhome';
 import route from 'ziggy'
 import Aos from 'aos';
 import "aos/dist/aos.css"
+import { InertiaLink } from '@inertiajs/inertia-react';
 
 const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
 
@@ -84,7 +85,11 @@ const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
                                                 </div>
                                                 <h1 className="mt-2 text-2xl uppercase text-center">{post2.title}</h1>
                                                 <div className="flex justify-end py-3 px-4">
-                                                    <a className="text-sm text-gray-600 hover:text-gray-500" href="#">+ Veja Mais</a>
+                                                    <InertiaLink
+                                                        href={route('postagem', post2.slug)}
+                                                        className="text-sm text-gray-600 hover:text-gray-500">
+                                                        + Veja Mais
+                                                    </InertiaLink>
                                                 </div>
                                             </div>
                                         </div>
@@ -121,15 +126,19 @@ const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
                                 <section className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8">
                                     {sec4.posts.map((post4, pIndex4) => (
                                         <div key={pIndex4}>
-                                            <div  data-aos="fade-up" data-aos-duration="1500" className="p-2 border border-white shadow hover:shadow-lg" style={{ backgroundImage: "url(/storage/post/" + post4.featured + ")", backgroundSize: "100%" }}>
-                                                <div className="p-4 cursor-pointer bg-white rounded border border-white bg-white bg-opacity-80 hover:bg-opacity-70">
-                                                    <div className="text-center text-gray-700">
-                                                        <div className="flex justify-center">
-                                                            <h1 className="text-8xl text-gray-800">{iconClientes(pIndex4)}</h1>
+                                            <div data-aos="fade-up" data-aos-duration="1500" className="p-2 border border-white shadow hover:shadow-lg" style={{ backgroundImage: "url(/storage/post/" + post4.featured + ")", backgroundSize: "100%" }}>
+                                                <InertiaLink
+                                                    href={route('postagem', post4.slug)}
+                                                >
+                                                    <div className="p-4 rounded border border-white bg-white bg-opacity-80 hover:bg-opacity-70">
+                                                        <div className="text-center text-gray-700">
+                                                            <div className="flex justify-center">
+                                                                <h1 className="text-8xl text-gray-800">{iconClientes(pIndex4)}</h1>
+                                                            </div>
+                                                            <h1 className="text-xl uppercase text-center pt-4">{post4.title}</h1>
                                                         </div>
-                                                        <h1 className="text-xl uppercase text-center pt-4">{post4.title}</h1>
                                                     </div>
-                                                </div>
+                                                </InertiaLink>
                                             </div>
                                         </div>
                                     ))}
@@ -153,16 +162,21 @@ const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
                                 <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                                     {sec5.posts.map((post5, pIndex5) => (
                                         <div key={pIndex5}>
-                                        <div data-aos="fade-up" className="h-full flex flex-col p-0 shadow bg-white transition duration-600 ease-in-out hover:shadow-lg hover:bg-white" style={{ fontFamily: "'Comfortaa', cursive" }}>
-                                            <div className="pb-1 pr-0 bg-gradient-to-r from-yellow-800 to-yellow-600">
-                                                <img className="h-44 w-full" src={"/storage/post/" + post5.featured} alt="" />
+                                            <div data-aos="fade-up" className="h-full flex flex-col p-0 shadow bg-white transition duration-600 ease-in-out hover:shadow-lg hover:bg-white" style={{ fontFamily: "'Comfortaa', cursive" }}>
+                                                <div className="pb-1 pr-0 bg-gradient-to-r from-yellow-800 to-yellow-600">
+                                                    <img className="h-44 w-full" src={"/storage/post/" + post5.featured} alt="" />
+                                                </div>
+                                                <h1 className="mt-4 text-2xl uppercase text-center">{post5.title}</h1>
+                                                <p className="text-center text-gray-500 text-sm">{post5.summary}</p>
+                                                <div className="relative py-6 flex-grow">
+                                                    <InertiaLink
+                                                        href={route('postagem', post5.slug)}
+                                                        className="absolute bottom-3 right-4 text-sm text-gray-600 hover:text-gray-500"
+                                                    >
+                                                        + Veja Mais
+                                                    </InertiaLink>
+                                                </div>
                                             </div>
-                                            <h1 className="mt-4 text-2xl uppercase text-center">{post5.title}</h1>
-                                            <p className="text-center text-gray-500 text-sm">{post5.summary}</p>
-                                            <div className="relative py-6 flex-grow">
-                                                <a className="absolute bottom-3 right-4 text-sm text-gray-600 hover:text-gray-500" href="#">+ Veja Mais</a>
-                                            </div>
-                                        </div>
                                         </div>
                                     ))}
                                 </section>

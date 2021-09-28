@@ -17,7 +17,7 @@ const postSite = ({ post_content }) => {
 
                     <div className="container mx-auto">
                         <div className="h-40 md:h-96 items-center lg:flex">
-                            <div className="h-full md:h-96 flex items-center justify-left w-full md:rounded-r-full bg-gradient-to-r from-yellow-500 to-yellow-400 lg:w-7/12">
+                            <div className="h-full md:h-96 flex items-center justify-left w-full bg-gradient-to-r from-yellow-500 to-yellow-400 lg:w-7/12">
                                 <div className="max-w-lg lg:max-w-lg p-2">
                                     <h1 className="md:text-2xl text-md font-semibold text-gray-200 uppercase dark:text-white lg:text-3xl">{post_content.title}</h1>
                                     <p className="mt-2 text-sm md:text-2xl text-gray-100">{post_content.summary}</p>

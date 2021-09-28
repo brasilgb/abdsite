@@ -9,7 +9,7 @@ import { HiMenu } from 'react-icons/hi';
 
 const navBarSite = () => {
 
-    const { general, categories, pages } = usePage().props;
+    const { general, categories, pages, posts } = usePage().props;
 
     const logo = general.logo ? general.logo : 'default.jpg';
 
@@ -63,6 +63,9 @@ const navBarSite = () => {
     };
 
     const [menuOpen, setMenuOpen] = useState(menuOpen);
+
+    const location = window.location.pathname
+    const urlCurrent = location.split('/')
 
     return (
         <Fragment>
@@ -130,8 +133,7 @@ const navBarSite = () => {
                                                         <InertiaLink
                                                             href=""
                                                             onClick={(e) => menuItem.sub_categories.length == 0 ? openLink(e, menuItem.slug) : toggleSubMenu(e, i)}
-
-                                                            className={`${route().current('categoria', menuItem.slug) ?
+                                                            className={`${route().current('categoria', menuItem.slug) || route().current('postagem', menuItem.slug) ?
                                                                 'text-yellow-500 border-b-2 border-yellow-500 mx-1.5 sm:mx-6'
                                                                 :
                                                                 'border-b-2 border-transparent hover:text-yellow-500 dark:hover:text-gray-200 hover:border-yellow-500 mx-1.5 sm:mx-6'}`}
@@ -165,7 +167,7 @@ const navBarSite = () => {
 
                                 <InertiaLink
                                     href={route('galerias')}
-                                    className={`${route().current('galerias') ?
+                                    className={`${urlCurrent[1] === 'galerias' ?
                                         'text-yellow-500 border-b-2 border-yellow-500 mx-1.5 sm:mx-6'
                                         :
                                         'border-b-2 border-transparent hover:text-yellow-500 dark:hover:text-gray-200 hover:border-yellow-500 mx-1.5 sm:mx-6'}`}

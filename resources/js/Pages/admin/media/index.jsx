@@ -26,9 +26,7 @@ const MediaAdmin = ({ galleryid, galleryname, media, success, mediaTitle }) => {
     const descriptionRef = useRef();
 
     const updateMedia = (gallery,media,title,description) => {
-        // const title = titleRef.current.value;
-        // const gallery = galleryRef.current.value
-        // const description = descriptionRef.current.value;
+
         Inertia.post(route('midia.alterar', media), { _method: 'put', title, gallery, description });
     };
 
@@ -81,10 +79,10 @@ const MediaAdmin = ({ galleryid, galleryname, media, success, mediaTitle }) => {
                 {verifyMedia &&
                     verifyMedia()
                 }
-                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div className="gap-4" style={{columnWidth: "200px", columnCount: "6"}}>
                     {media.data.map((media, index) => (
 
-                        <div key={index} className="border-4 border-white rounded shadow bg-white">
+                        <div key={index} className="mb-4 border-4 border-white rounded shadow bg-white" style={{breakInside: "avoid-column"}}>
                             <img className="w-full rounded-t-sm" src={media.media ? '/storage/gallery/' + media.media : '/storage/default.jpg'} alt="" />
 
                             <div className="flex justify-left pt-1 mt-1 bg-gray-200">

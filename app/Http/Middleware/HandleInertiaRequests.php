@@ -52,14 +52,13 @@ class HandleInertiaRequests extends Middleware
                 ? General::orderByDesc('id_general')->first()
                 : '',
 
-            'categories' => fn () => Category::get()
+            'categories' => fn () => Category::with('posts')->get()
                 ? Category::with('subCategories')->get()
                 : '',
 
             'pages' => fn () => Post::get()
                 ? Post::where('type', 0)->orderBy('title')->get()
-                : ''
-
+                : '',
         ]);
     }
 }

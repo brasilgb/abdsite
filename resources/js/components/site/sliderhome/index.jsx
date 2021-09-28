@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import { InertiaLink } from "@inertiajs/inertia-react";
+import React from "react";
 import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import route from 'ziggy'
 
 const SliderHome = ({ galleryData }) => {
 
@@ -45,11 +45,11 @@ const SliderHome = ({ galleryData }) => {
             <Slider {...settings}>
                 {galleryData.medias.map((media, index) => (
                     <div key={index}>
-                        <article className=" my-4 h-72 p-1 mx-4 shadow bg-white transition duration-600 ease-in-out hover:shadow-lg hover:bg-white" style={{fontFamily: "'Comfortaa', cursive"}}>
-                        <div data-aos="fade-up" data-aos-duration="1500" className="pb-1 bg-gradient-to-r from-red-900 to-red-600">
-                            <img className="w-full h-48" src={"storage/gallery/" + media.media} alt="" />
+                        <article className=" my-4 h-80 p-1 mx-4 shadow bg-white transition duration-600 ease-in-out hover:shadow-lg hover:bg-white" style={{ fontFamily: "'Comfortaa', cursive" }}>
+                            <div data-aos="fade-up" data-aos-duration="1500" className="pb-1 bg-gradient-to-r from-red-900 to-red-600">
+                                <InertiaLink href={route('galerias')}><img className="w-full h-48" src={"storage/gallery/" + media.media} alt="" /></InertiaLink>
                             </div>
-                            <h1 className="mt-2 text-xl text-center">{media.description}</h1>
+                            <h1 className="mt-2 text-sm text-gray-500 text-center">{media.description}</h1>
                         </article>
                     </div>
                 ))

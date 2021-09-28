@@ -45,17 +45,17 @@ const gallerySite = ({ galleries }) => {
 
                                         </section>
                                         <div className="bg-gray-200 p-4 md:px-8 lg:px-80 py-10">
-                                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                                                {galleries.map((gallery, pIndex) => (
-                                                    <div key={pIndex}>
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                                                <section className="mx-auto container">
+                                                    {galleries.map((gallery, pIndex) => (
+                                                        <div key={pIndex}>
 
-                                                            <section className="mx-auto container p-0 bg-gray-100 border border-white">
-                                                                <div className="pb-1 pr-0">
-                                                                    <img className="w-full h-48" src={"/storage/gallery/" + gallery.cover} alt="" />
-                                                                </div>
-                                                                <div className="p-2">
-                                                                    <h1 className="py-4 text-center text-lg md:text-xl uppercase font-semibold text-gray-700">{gallery.galleryname}</h1>
-                                                                    <p className="py-4 text-sm md:text-lg text-gray-700">{gallery.description}</p>
+                                                            <div className="mb-4 bg-gray-100 border-2 border-white shadow hover:shadow-md rounded">
+                                                                <img className="w-full h-48" src={"/storage/gallery/" + gallery.cover} alt="" />
+
+                                                                <div className="px-6 py-4">
+                                                                    <p className="text-center text-lg md:text-md text-gray-700">{gallery.galleryname}</p>
+                                                                    <p className="text-center text-sm md:text-md text-ars-700 break-words">{gallery.description}</p>
                                                                 </div>
 
                                                                 <div className="mb-0 pt-1 flex flex-auto items-center justify-end border-t border-gray-200">
@@ -63,13 +63,13 @@ const gallerySite = ({ galleries }) => {
                                                                         href={route('media', gallery.slug)}
                                                                         className="flex items-center text-sm font-semibold text-yellow-600 hover:text-yellow-500"
                                                                     >
-                                                                        <span>Saiba mais</span><GoArrowSmallRight className="pt-1 text-4xl" />
+                                                                        <span>Ver imagens</span><GoArrowSmallRight className="pt-1 text-4xl" />
                                                                     </InertiaLink>
                                                                 </div>
-                                                            </section>
 
-                                                    </div>
-                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    ))} </section>
                                             </div>
                                         </div>
                                     </div>

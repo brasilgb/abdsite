@@ -65,7 +65,7 @@ Route::get('/categoria/{category}', [CategorySite::class, 'index'])->name('categ
 Route::get('/postagem/{post}', [PostSite::class, 'index'])->name('postagem');
 Route::get('/pagina/{page}', [PageSite::class, 'index'])->name('pagina');
 Route::get('/galerias', [GallerySite::class, 'index'])->name('galerias');
-Route::get('/galeria/{gallery}', [GallerySite::class, 'media'])->name('media');
+Route::get('/galerias/{gallery}', [GallerySite::class, 'media'])->name('media');
 Route::get('/imagem/{image}', [MediaSite::class, 'index'])->name('imagem');
 Route::get('/contato', [ContactSite::class, 'index'])->name('contato');
 Route::post('/enviar', [ContactSite::class, 'store'])->name('enviar');
