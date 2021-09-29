@@ -56,8 +56,8 @@ const categorySite = ({ categories_posts }) => {
                                                                     <img className="w-full h-48" src={"/storage/post/" + post.featured} alt="" />
                                                                 </div>
                                                                 <div className="px-6 py-4">
-                                                                    <p className="text-center text-xl md:text-md font-Confortaa font-semibold text-gray-700 uppercase">{post.title}</p>
-                                                                    <p className="pt-2 text-center text-md md:text-md font-Confortaa text-gray-600 break-words">{post.summary}</p>
+                                                                    <p className="text-center text-sm md:text-md font-Confortaa font-semibold text-gray-700 uppercase">{post.title}</p>
+                                                                    <p className="pt-2 text-center text-sm md:text-md font-Confortaa text-gray-600 break-words">{post.summary}</p>
                                                                 </div>
 
                                                                 <div className="mb-0 pt-1 flex flex-auto items-center justify-end border-t border-gray-200">

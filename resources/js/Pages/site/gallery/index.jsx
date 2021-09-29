@@ -54,8 +54,8 @@ const gallerySite = ({ galleries }) => {
                                                                 <img className="w-full h-48" src={"/storage/gallery/" + gallery.cover} alt="" />
 
                                                                 <div className="px-6 py-4">
-                                                                    <p className="text-center text-lg md:text-md font-Confortaa font-semibold text-gray-700 uppercase">{gallery.galleryname}</p>
-                                                                    <p className="text-center text-sm md:text-md font-Confortaa text-ars-700 break-words">{gallery.description}</p>
+                                                                    <p className="text-center text-sm md:text-sm font-Confortaa font-semibold text-gray-700 uppercase">{gallery.galleryname}</p>
+                                                                    <p className="text-center text-sm md:text-sm font-Confortaa text-ars-700 break-words">{gallery.description}</p>
                                                                 </div>
 
                                                                 <div className="mb-0 pt-1 flex flex-auto items-center justify-end border-t border-gray-200">

@@ -24,6 +24,7 @@
         "@inertiajs/inertia-react": "^0.6.4",
         "@inertiajs/progress": "^0.2.6",
         "@tailwindcss/forms": "^0.3.3",
+        "@tinymce/tinymce-react": "^3.12.6",
         "aos": "^2.3.4",
         "date-fns": "^2.24.0",
         "prop-types": "^15.7.2",

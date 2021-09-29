@@ -2,6 +2,7 @@ import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { HiDocumentDuplicate, HiCheck, HiChevronDoubleLeft, HiSave, HiExclamation } from 'react-icons/hi';
 import route from 'ziggy';
 import { Inertia } from '@inertiajs/inertia';
+import { Editor } from '@tinymce/tinymce-react';
 import { InertiaLink, Head, usePage } from '@inertiajs/inertia-react';
 import Layout from '../../../components/admin/layout';
 
@@ -29,7 +30,7 @@ const Create = ({ success, pageTitle, error }) => {
         e.preventDefault();
         const title = titleRef.current.value;
         const summary = summaryRef.current.value;
-        const content = contentRef.current.value;
+        const content = contentRef.current.getContent();
         const featured = featuredRef.current.files[0];
         const social = socialRef.current.checked;
         const active = activeRef.current.checked;
@@ -93,12 +94,27 @@ const Create = ({ success, pageTitle, error }) => {
 
                                 <div className="pt-2">
                                     <label htmlFor=""><span className="text-gray-500">Conteúdo da página</span></label>
-                                    <textarea
-                                        ref={contentRef}
-                                        rows="4"
-                                        className="form-input text-gray-500 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                        id="content"
-                                    ></textarea>
+                                    {/* Editor de texto Tinymc */}
+                                    <Editor
+                                        apiKey="3v1hskg4ud3hwf1bi5to0pt3xp6zjyksrvujfngcpzzaw2l3"
+                                        onInit={(evt, editor) => contentRef.current = editor}
+                                        initialValue=""
+                                        init={{
+                                            language: 'pt_BR',
+                                            height: 400,
+                                            menubar: false,
+                                            plugins: [
+                                                'advlist autolink lists link image charmap print preview anchor',
+                                                'searchreplace visualblocks code fullscreen',
+                                                'insertdatetime media table paste code help wordcount'
+                                            ],
+                                            toolbar: 'undo redo | formatselect | ' +
+                                                'bold italic forecolor backcolor | alignleft aligncenter ' +
+                                                'alignright alignjustify | bullist numlist outdent indent | ' +
+                                                'removeformat | help',
+                                            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                                        }}
+                                    />
                                     {errors.content && <div className="p-2 border border-t-0 border-red-200 text-sm flex items-center w-full bg-yellow-100 text-red-500"><HiExclamation className="text-md mt-1" />{errors.content}</div>}
                                 </div>
 

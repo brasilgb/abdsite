@@ -113,7 +113,7 @@ const navBarSite = () => {
                                         <InertiaLink
                                             key={index}
                                             href={route('pagina', page.slug)}
-                                            className={`${route().current('pagina') ?
+                                            className={`${route().current('pagina', page.slug) ?
                                                 'text-yellow-500 border-b-2 border-yellow-500 mx-1.5 sm:mx-6'
                                                 :
                                                 'border-b-2 border-transparent hover:text-yellow-500 dark:hover:text-gray-200 hover:border-yellow-500 mx-1.5 sm:mx-6'}`}

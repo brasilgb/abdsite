@@ -3,6 +3,7 @@ import { HiDocumentDuplicate, HiCheck, HiChevronDoubleLeft, HiSave, HiExclamatio
 import route from 'ziggy';
 import { Inertia } from '@inertiajs/inertia';
 import { InertiaLink, Head, usePage } from '@inertiajs/inertia-react';
+import { Editor } from '@tinymce/tinymce-react';
 import Layout from '../../../components/admin/layout';
 
 const Edit = ({ page, pageTitle, success }) => {
@@ -28,7 +29,6 @@ const Edit = ({ page, pageTitle, success }) => {
     useEffect(() => {
         titleRef.current.value = page.title;
         summaryRef.current.value = page.summary;
-        contentRef.current.value = page.content;
         socialRef.current.checked = page.social;
         activeRef.current.checked = page.active;
     }, [])
@@ -37,7 +37,7 @@ const Edit = ({ page, pageTitle, success }) => {
         e.preventDefault();
         const title = titleRef.current.value;
         const summary = summaryRef.current.value;
-        const content = contentRef.current.value;
+        const content = contentRef.current.getContent();
         const featured = featuredRef.current.files[0];
         const social = socialRef.current.checked;
         const active = activeRef.current.checked;
@@ -48,7 +48,7 @@ const Edit = ({ page, pageTitle, success }) => {
     return (
         <Fragment>
             <Layout>
-                <Head title={ general.title + ' - ' + pageTitle} />
+                <Head title={general.title + ' - ' + pageTitle} />
                 <div className="rounded py-2 px-4 text-gray-900 bg-gray-100 shadow">
 
                     <div className="p-2 mt-2 flex bg-gray-200 rounded-t-md border border-gray-300">
@@ -101,12 +101,29 @@ const Edit = ({ page, pageTitle, success }) => {
 
                                 <div className="pt-2">
                                     <label htmlFor=""><span className="text-gray-500">Conteúdo da página</span></label>
-                                    <textarea
-                                        ref={contentRef}
-                                        rows="4"
-                                        className="form-input text-gray-500 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                        id="content"
-                                    ></textarea>
+
+                                    {/* Editor de texto Tinymc */}
+                                    <Editor
+                                        apiKey="3v1hskg4ud3hwf1bi5to0pt3xp6zjyksrvujfngcpzzaw2l3"
+                                        onInit={(evt, editor) => contentRef.current = editor}
+                                        initialValue={page.content}
+                                        content={page.content}
+                                        init={{
+                                            language: 'pt_BR',
+                                            height: 400,
+                                            menubar: false,
+                                            plugins: [
+                                                'advlist autolink lists link image charmap print preview anchor',
+                                                'searchreplace visualblocks code fullscreen',
+                                                'insertdatetime media table paste code help wordcount'
+                                            ],
+                                            toolbar: 'undo redo | formatselect | ' +
+                                                'bold italic forecolor backcolor | alignleft aligncenter ' +
+                                                'alignright alignjustify | bullist numlist outdent indent | ' +
+                                                'removeformat | help',
+                                            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+                                        }}
+                                    />
                                     {errors.content && <div className="p-2 border border-t-0 border-red-200 text-sm flex items-center w-full bg-yellow-100 text-red-500"><HiExclamation className="text-md mt-1" />{errors.content}</div>}
                                 </div>
 
