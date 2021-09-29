@@ -53,7 +53,7 @@ const Seccoes = ({ success, section, categories_section, galleries_section, sect
                     }
 
                     <div className="py-4 flex border-b border-gray-300">
-                    <p>Defina aqui o conteúdo da página inicial. O conteúdo é definido pelas secções 1, 2, 4 e 5 que serão de categorias e 4 que será galeria de imagens.</p>
+                    <p>Defina aqui o conteúdo da página inicial. O conteúdo é definido pelas secções 1, 2, 4 e 5 que serão de categorias e 3 que será galeria de imagens.</p>
                     </div>
 
                     <form onSubmit={updateSection} className="py-4" autoComplete="off">
