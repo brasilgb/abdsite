@@ -69,7 +69,7 @@ const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
                     <div className="px-4 md:px-8 lg:px-80 py-20 pt-2 bg-gray-100">
                         {section2.map((sec2, index2) => (
                             <div key={index2}>
-                                <div className="py-8 font-Confortaa">
+                                <div className="py-8 font-Confortaa font-semibold">
                                     <h1 className="text-3xl text-center text-shadow text-red-900">{sec2.categorytitle}</h1>
                                     <p className="text-xl text-center py-4">{sec2.descricao}</p>
                                 </div>
@@ -83,7 +83,7 @@ const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
                                                 <div className="flex justify-center pt-4">
                                                     <h1 className="text-6xl ">{iconSevices(pIndex2)}</h1>
                                                 </div>
-                                                <h1 className="mt-2 text-2xl uppercase text-center">{post2.title}</h1>
+                                                <h1 className="mt-2 text-2xl uppercase text-center font-Confortaa font-semibold text-gray-700">{post2.title}</h1>
                                                 <div className="flex justify-end py-3 px-4">
                                                     <InertiaLink
                                                         href={route('postagem', post2.slug)}
@@ -167,11 +167,11 @@ const HomeSite = ({ section1, section2, section3, section4, section5 }) => {
                                                     <img className="h-44 w-full" src={"/storage/post/" + post5.featured} alt="" />
                                                 </div>
                                                 <h1 className="mt-4 text-2xl uppercase text-center">{post5.title}</h1>
-                                                <p className="text-center text-gray-500 text-sm">{post5.summary}</p>
+                                                <p className="pt-2 text-center text-gray-500 text-sm">{post5.summary}</p>
                                                 <div className="relative py-6 flex-grow">
                                                     <InertiaLink
                                                         href={route('postagem', post5.slug)}
-                                                        className="absolute bottom-3 right-4 text-sm text-gray-600 hover:text-gray-500"
+                                                        className="absolute bottom-3 right-4 text-sm text-ars-700 hover:text-ars-600"
                                                     >
                                                         + Veja Mais
                                                     </InertiaLink>

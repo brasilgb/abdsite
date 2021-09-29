@@ -47,7 +47,7 @@ const categorySite = ({ categories_posts }) => {
 
                                         </section>
                                         <div className="bg-gray-200 p-4 md:px-8 lg:px-80 py-10">
-                                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                                                 {category.posts.map((post, pIndex) => (
                                                     <div key={pIndex}>
                                                         {post.type == 1 &&
@@ -55,15 +55,15 @@ const categorySite = ({ categories_posts }) => {
                                                                 <div className="pb-1 pr-0">
                                                                     <img className="w-full h-48" src={"/storage/post/" + post.featured} alt="" />
                                                                 </div>
-                                                                <div className="p-2">
-                                                                    <h1 className="py-4 text-center text-lg md:text-xl uppercase font-semibold text-gray-700">{post.title}</h1>
-                                                                    <p className="py-4 text-sm md:text-lg text-gray-700">{post.summary}</p>
+                                                                <div className="px-6 py-4">
+                                                                    <p className="text-center text-xl md:text-md font-Confortaa font-semibold text-gray-700 uppercase">{post.title}</p>
+                                                                    <p className="pt-2 text-center text-md md:text-md font-Confortaa text-gray-600 break-words">{post.summary}</p>
                                                                 </div>
 
                                                                 <div className="mb-0 pt-1 flex flex-auto items-center justify-end border-t border-gray-200">
                                                                     <InertiaLink
                                                                         href={route('postagem',post.slug)}
-                                                                        className="flex items-center text-sm font-semibold text-yellow-600 hover:text-yellow-500"
+                                                                        className="flex items-center text-sm font-Confortaa text-yellow-600 hover:text-yellow-500"
                                                                     >
                                                                         <span>Saiba mais</span><GoArrowSmallRight className="pt-1 text-4xl" />
                                                                     </InertiaLink>

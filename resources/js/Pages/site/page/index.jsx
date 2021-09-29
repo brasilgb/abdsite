@@ -40,9 +40,9 @@ const pageSite = ({ page_content }) => {
                 {page_content.type == 0 &&
                     <section className="mx-auto container px-4 py-2 my-4 bg-gray-100 rounded border border-white">
 
-                        <h1 className="py-4 text-lg md:text-xl uppercase font-semibold text-blue-700">{page_content.title}</h1>
+                        <h1 className="pt-4 text-lg md:text-xl uppercase font-Confortaa font-semibold text-gray-700 border-b border-gray-400">{page_content.title}</h1>
                         <div className="py-4">
-                            <p dangerouslySetInnerHTML={{ __html: page_content.content }} />
+                            <p className="font-Confortaa text-gray-600" dangerouslySetInnerHTML={{ __html: page_content.content }} />
                         </div>
 
                     </section>

@@ -21,13 +21,10 @@ const postSite = ({ post_content }) => {
                                 <div className="max-w-lg lg:max-w-lg p-2">
                                     <h1 className="md:text-2xl text-md font-semibold text-gray-200 uppercase dark:text-white lg:text-3xl">{post_content.title}</h1>
                                     <p className="mt-2 text-sm md:text-2xl text-gray-100">{post_content.summary}</p>
-                                    {/* <button className="w-full px-3 py-2 mt-6 text-xs font-medium text-white uppercase transition-colors duration-200 transform bg-yellow-800 rounded-md lg:w-auto hover:bg-indigo-500 focus:outline-none focus:bg-indigo-500">
-                                        + Ver mais
-                                    </button> */}
+
                                 </div>
                             </div>
                             <div className="h-96 flex items-center justify-rigth w-full mt-6 lg:mt-0 lg:w-5/12">
-                                {/* <img className="w-full h-80 rounded-l-full" src={"/storage/post/" + category.posts[0].featured} alt="" /> */}
                             </div>
                         </div>
                     </div>
@@ -35,10 +32,9 @@ const postSite = ({ post_content }) => {
 
                {post_content.type == 1 &&
                     <section className="mx-auto container px-4 py-2 my-4 bg-gray-100 rounded border border-white">
-
-                        <h1 className="py-4 text-lg md:text-xl uppercase font-semibold text-blue-700">{post_content.title}</h1>
+                        <h1 className="pt-4 text-lg md:text-xl uppercase font-Confortaa font-semibold text-gray-700 border-b border-gray-400">{post_content.title}</h1>
                         <div className="py-4">
-                            <p dangerouslySetInnerHTML={{ __html: post_content.content }} />
+                            <p className="font-Confortaa text-gray-600" dangerouslySetInnerHTML={{ __html: post_content.content }} />
                         </div>
 
                     </section>

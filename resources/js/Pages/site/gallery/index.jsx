@@ -54,14 +54,14 @@ const gallerySite = ({ galleries }) => {
                                                                 <img className="w-full h-48" src={"/storage/gallery/" + gallery.cover} alt="" />
 
                                                                 <div className="px-6 py-4">
-                                                                    <p className="text-center text-lg md:text-md text-gray-700">{gallery.galleryname}</p>
-                                                                    <p className="text-center text-sm md:text-md text-ars-700 break-words">{gallery.description}</p>
+                                                                    <p className="text-center text-lg md:text-md font-Confortaa font-semibold text-gray-700 uppercase">{gallery.galleryname}</p>
+                                                                    <p className="text-center text-sm md:text-md font-Confortaa text-ars-700 break-words">{gallery.description}</p>
                                                                 </div>
 
                                                                 <div className="mb-0 pt-1 flex flex-auto items-center justify-end border-t border-gray-200">
                                                                     <InertiaLink
                                                                         href={route('media', gallery.slug)}
-                                                                        className="flex items-center text-sm font-semibold text-yellow-600 hover:text-yellow-500"
+                                                                        className="flex items-center text-sm  font-Confortaa text-yellow-600 hover:text-yellow-500"
                                                                     >
                                                                         <span>Ver imagens</span><GoArrowSmallRight className="pt-1 text-4xl" />
                                                                     </InertiaLink>

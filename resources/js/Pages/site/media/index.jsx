@@ -68,8 +68,8 @@ const gallerySite = ({ galleries_images }) => {
                                                                             style={{ width: width, height: height }}
                                                                             onClick={toggleLightbox.bind(null, idx)} />
                                                                         <div className={image.description || image.title ? "px-6 py-4" : ''}>
-                                                                            <p className="text-center text-lg md:text-md text-gray-700">{image.title}</p>
-                                                                            <p className="text-center text-sm md:text-md text-ars-700">{image.description}</p>
+                                                                            <p className="text-center text-lg md:text-md font-Confortaa font-semibold text-gray-700">{image.title}</p>
+                                                                            <p className="text-center text-sm md:text-md font-Confortaa text-ars-700">{image.description}</p>
                                                                         </div>
                                                                     </div>
                                                                 )
