@@ -1,11 +1,22 @@
-import { InertiaLink, Head, usePage } from '@inertiajs/inertia-react'
 import React, { Fragment } from 'react'
+import { Head, usePage } from '@inertiajs/inertia-react'
+import Lightbox from "react-lightbox-component";
+import "react-lightbox-component/build/css/index.css";
 import { HiLightBulb } from 'react-icons/hi'
 import Layout from '../../../components/site/layout'
 
 const gallerySite = ({ galleries_images }) => {
 
     const { general } = usePage().props
+
+    const images = galleries_images[0].medias.map((media, mIndex) => (
+        {
+            src: "/storage/gallery/" + media.media,
+            title: media.title,
+            description: media.description
+        }
+    ))
+
     return (
         <Fragment>
 
@@ -44,20 +55,28 @@ const gallerySite = ({ galleries_images }) => {
                                         </section>
                                         <div className="bg-gray-200 p-4 md:px-8 lg:px-80 py-10">
                                             <div className="gap-4">
-                                                <section className="gap-4 w-full mx-auto container" style={{columnWidth: "200px", columnCount: "6"}}>
-                                                    {gallery.medias.map((media, mIndex) => (
-                                                        <div key={mIndex}>
-                                                            <div className="mb-4 bg-gray-100 border-2 border-white shadow hover:shadow-md rounded" style={{breakInside: "avoid-column"}}>
-                                                                <img className="border-b-2 border-white rounded-t" src={"/storage/gallery/" + media.media} alt={media.title} />
-                                                                {media.description &&
-                                                                    <div className="px-6 py-4">
-                                                                        <p className="text-center text-lg md:text-md text-gray-700">{media.title}</p>
-                                                                        <p className="text-center text-sm md:text-md text-ars-700">{media.description}</p>
+                                                <section className="gap-4 w-full mx-auto container" style={{ columnWidth: "200px", columnCount: "5" }}>
+                                                    <div>
+                                                        <Lightbox images={images} thumbnailWidth='100%' thumbnailHeight='100%'
+                                                            renderImageFunc={(idx, image, toggleLightbox, width, height) => {
+                                                                return (
+                                                                    <div className="mb-4 bg-gray-100 border-2 border-white shadow hover:shadow-md rounded" style={{ breakInside: "avoid-column" }}>
+                                                                        <img
+                                                                            key={idx}
+                                                                            src={image.src}
+                                                                            className='cursor-pointer border-b-2 border-white rounded-t'
+                                                                            style={{ width: width, height: height }}
+                                                                            onClick={toggleLightbox.bind(null, idx)} />
+                                                                        <div className={image.description || image.title ? "px-6 py-4" : ''}>
+                                                                            <p className="text-center text-lg md:text-md text-gray-700">{image.title}</p>
+                                                                            <p className="text-center text-sm md:text-md text-ars-700">{image.description}</p>
+                                                                        </div>
                                                                     </div>
-                                                                }
-                                                            </div>
-                                                        </div>
-                                                    ))}
+                                                                )
+                                                            }}
+
+                                                        />
+                                                    </div>
                                                 </section>
                                             </div>
                                         </div>
@@ -67,6 +86,8 @@ const gallerySite = ({ galleries_images }) => {
                                         <HiLightBulb className="text-2xl text-red-500" /> <p className="text-lg text-red-500">Não há dados a serem mostrados para esta categoria!!</p>
                                     </div>
                                 }
+
+
                             </div>
                         ))}
                     </div>

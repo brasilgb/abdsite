@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
     const { general } = usePage().props;
 
     const logo = general.logo ? general.logo : 'default.jpg';
-    
+
     const [showScroll, setShowScroll] = useState(false)
 
     const checkScrollTop = () => {
@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
             <Head>
                 <link rel="icon" type="image/svg+xml" href={"/storage/images/" + logo} />
             </Head>
-            <div className="flex flex-col min-h-screen">
+            <div className="fadeIn flex flex-col min-h-screen">
                 <div className="w-full bg-black pb-16 z-50">
                     <NavBarSite />
                 </div>
